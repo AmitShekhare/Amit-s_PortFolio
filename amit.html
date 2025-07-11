@@ -17,26 +17,20 @@
       background: linear-gradient(to bottom, #f0f4f8, #e2e8f0);
       color: #222;
       line-height: 1.6;
-      animation: fadeInBody 1s ease-in;
     }
 
     header, section, footer {
       padding: 2rem;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s ease forwards;
+      animation: fadeIn 1s ease-in;
     }
 
     header {
-      animation-delay: 0.2s;
       background-color: #1e293b;
       color: white;
       text-align: center;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 4px solid #0f172a;
+      padding: 4rem 2rem;
       border-radius: 0 0 20px 20px;
     }
 
@@ -59,41 +53,51 @@
       border: 4px solid #64748b;
     }
 
-    section {
-      animation-delay: 0.5s;
-      margin-bottom: 2rem;
-    }
-
-    section h2 {
+    h2 {
       font-size: 2rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       color: #0f172a;
+      text-align: center;
     }
 
-    .project {
-      background-color: #ffffff;
+    .project-block {
+      margin-bottom: 3rem;
+    }
+
+    .project-desc {
+      background: #fff;
       padding: 1.5rem;
-      margin-top: 1rem;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      margin-bottom: 1rem;
     }
 
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    .project-desc h3 {
+      margin-bottom: 0.5rem;
+      color: #1e293b;
     }
 
-    .project img {
+    .project-desc ul {
+      margin-top: 0.5rem;
+      margin-left: 1.5rem;
+    }
+
+    .project-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .project-images img {
       width: 100%;
-      max-width: 800px;
+      max-width: 550px;
       border-radius: 12px;
-      margin-top: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
     }
 
-    .project img:hover {
+    .project-images img:hover {
       transform: scale(1.02);
     }
 
@@ -140,7 +144,6 @@
       padding: 0.7rem 1.2rem;
       border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s ease;
     }
 
     .resume-link:hover {
@@ -148,7 +151,6 @@
     }
 
     footer {
-      animation-delay: 0.8s;
       background-color: #1e293b;
       color: white;
       text-align: center;
@@ -161,40 +163,21 @@
     a {
       color: #14b8a6;
       text-decoration: none;
-      transition: color 0.3s ease;
     }
 
     a:hover {
       color: #0f766e;
     }
 
-    ul {
-      margin-left: 1.2rem;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      header, section, footer {
-        padding: 1rem;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      section h2 {
-        font-size: 1.5rem;
+    @media (max-width: 768px) {
+      .project-images {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -209,20 +192,39 @@
   </header>
 
   <section>
-    <h2>Featured Project</h2>
-    <div class="project">
-      <h3>KGamify Website Design (Internship Project)</h3>
-      <p><strong>Duration:</strong> Jan 2025 – Jun 2025</p>
-      <p><strong>Role:</strong> Product Designer</p>
-      <p><strong>Tools:</strong> Figma, HTML/CSS, Javascript,React</p>
-      <p><strong>Overview:</strong> Designed a user-friendly learning platform during my internship at KGamify.</p>
-      <ul>
-        <li>Created responsive wireframes and prototypes in Figma</li>
-        <li>Worked closely with frontend team on implementation</li>
-        <li>Improved UX, navigation, and user engagement</li>
-      </ul>
-      <img src="Home page.png" alt="KGamify Home Page Design">
-      <img src="features Detail page 1 for events.png" alt="KGamify Features Detail Page">
+    <h2>Featured Projects</h2>
+
+    <div class="project-block">
+      <div class="project-desc">
+        <h3>KGamify Website Design (Internship Project)</h3>
+        <p><strong>Duration:</strong> Jan 2025 – Jun 2025</p>
+        <p><strong>Role:</strong> Product Designer</p>
+        <p><strong>Tools:</strong> Figma, HTML/CSS, JavaScript, React</p>
+        <p><strong>Overview:</strong> Designed a user-friendly learning platform during my internship at KGamify.</p>
+        <ul>
+          <li>Created responsive wireframes and prototypes in Figma</li>
+          <li>Worked closely with frontend team on implementation</li>
+          <li>Improved UX, navigation, and user engagement</li>
+        </ul>
+      </div>
+      <div class="project-images">
+        <img src="Home page.png" alt="KGamify Home Page">
+        <img src="features Detail page 1 for events.png" alt="KGamify Feature Page">
+      </div>
+    </div>
+
+    <div class="project-block">
+      <div class="project-desc">
+        <h3>iMocha Smart Proctoring Dashboard</h3>
+        <p><strong>Context:</strong> Developed a real-time AI-driven dashboard for monitoring online test integrity, complete with face detection, screen capture, and alerts for suspicious behavior.</p>
+        <ul>
+          <li>Visualized alerts, logs, face detection and risks</li>
+          <li>Improved remote test transparency</li>
+        </ul>
+      </div>
+      <div class="project-images">
+        <img src="Smart VP scrren 1.png" alt="iMocha Smart Proctoring Dashboard">
+      </div>
     </div>
   </section>
 
